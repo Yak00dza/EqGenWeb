@@ -1,0 +1,15 @@
+services:
+  nginx:
+    image: nginx:1.25.1
+    ports:
+      - 80:80
+    volumes:
+      - .:/var/www/eqgen/
+      - ./.docker/nginx/:/etc/nginx/conf.d
+
+  php:
+    image: php:8.1-fpm
+    ports:
+      - 9000:9000
+    volumes:
+      - .:/var/www/eqgen/
